@@ -2,7 +2,7 @@
 addpath(genpath('/home/nuttidalab/Documents/OSort/osort-v4-code/code/continuous/blackrock'));
 
 % CHANGES WITH PATIENT
-subj = '202603';
+subj = '202601';
 if strcmp(subj, '202512') % only for 1st patient with old recording system
     rawNSX  = sprintf('../../data/%s/raw/datafile_202512b002.ns6', subj);
 else

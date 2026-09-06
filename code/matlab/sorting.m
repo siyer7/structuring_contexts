@@ -1,12 +1,12 @@
 addpath(genpath('/home/nuttidalab/Documents/OSort/osort-v4-code'));
-subj = '202603';
+subj = '202605';
 
 % where your BL*.mat files live (from convertNSx_toMat)
 paths = struct();
 % base folder = parent of mat_files/, sort/, figs/, osort_out/
 paths.basePath   = sprintf('../../data/%s/osort_mat/', subj);    % must end with /
 % input
-paths.pathRaw = [paths.basePath 'nsx2mat/'];
+paths.pathRaw = [paths.basePath 'nsx2mat_notch600/'];
 paths.pathOut    = [paths.basePath 'sorted_mats_notch600/'];
 paths.pathFigs   = [paths.basePath 'figs_notch600/'];
 paths.timestampspath = paths.basePath;
@@ -18,8 +18,8 @@ if ~exist(paths.pathFigs,'dir'), mkdir(paths.pathFigs); end
 % choose which channels (match your BL*.mat files)
 matFiles = dir(fullfile(paths.pathRaw,'BL*.mat'));
 
-chans_to_resort = [219, 223, 218, 216, 224];
-matFiles = matFiles(arrayfun(@(f) ismember(sscanf(f.name,'BL%d.mat'), chans_to_resort), matFiles));
+% chans_to_resort = [219, 223, 218, 216, 224];
+% matFiles = matFiles(arrayfun(@(f) ismember(sscanf(f.name,'BL%d.mat'), chans_to_resort), matFiles));
 
 filesToProcess = sort(arrayfun(@(f) sscanf(f.name,'BL%d.mat'), matFiles));
 fprintf('Channels to process: %s\n', num2str(filesToProcess'));
@@ -34,11 +34,11 @@ doGroundNormalization = 0;
 normalizeOnly   = [];
 
 % alignment (max/min)
-% filesAlignMax = [];
-% filesAlignMin = filesToProcess;
+filesAlignMax = [];
+filesAlignMin = filesToProcess;
 
-filesAlignMax = filesToProcess;
-filesAlignMin = [];
+% filesAlignMax = filesToProcess;
+% filesAlignMin = [];
 
 % threshold
 extractionThreshold = 5;   % adjust as needed
