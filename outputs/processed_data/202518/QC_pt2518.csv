@@ -1,4 +1,4 @@
-chanID,unitID,keeps,maybes,questionables,mergers
+chanID,unitID,keeps,maybes,notes,mergers
 193,421,,FR <.5,,
 193,467,1,,,
 194,179,,,,
@@ -22,8 +22,8 @@ chanID,unitID,keeps,maybes,questionables,mergers
 203,519,,FR <.5,,
 204,701,1,,,
 204,708,1,,,
-205,590,1,,,
-206,612,1,,,
+205,590,,,,
+206,612,,,,
 207,1827,,,,
 207,1911,,,,
 207,1988,1,,,1
